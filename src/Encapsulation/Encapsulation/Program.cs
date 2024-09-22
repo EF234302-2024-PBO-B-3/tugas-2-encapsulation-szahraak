@@ -3,6 +3,7 @@ using Encapsulation.Employment;
 using System;
 using Encapsulation.Calendar;
 using Encapsulation.Banking;
+using Encapsulation.Extra;
 
 namespace Encapsulation;
 
@@ -53,6 +54,19 @@ public class Program
         Console.WriteLine($"Balance after withdrawal: {account.GetBalance()}");
 
         // Extra
+        Console.WriteLine("Constructor:");
+        Student student1 = new Student("Jane Doe", "5025231000", 90);
+        Student student2 = new Student("", "5025221000", -100); //Invalid name and grade (minus)
+        Student student3 = new Student("John Doe", "", 250); //Invalid student ID and grade (> 100)
+        student1.DisplayStudentInfo();
+        student2.DisplayStudentInfo();
+        student3.DisplayStudentInfo();
 
+        Console.WriteLine($"Calculatling student 1 with invalid final exam grade, return :{student1.CalculateGrade(100, 180)}");
+        Console.WriteLine($"Calculatling student 2 with invalid midterm grade, return :{student2.CalculateGrade(-1, 90)}");
+        Console.WriteLine($"Calculatling student 3 with valid grades, return :{student3.CalculateGrade(100, 80)}"); 
+        student1.DisplayStudentInfo();
+        student2.DisplayStudentInfo();
+        student3.DisplayStudentInfo();
     }
 }
